@@ -200,10 +200,10 @@ func commands() []cli.Command {
 				/*
 				err = os.Symlink(config.store+v, config.JavaHome)
 				*/
-				cmd := exec.Command("rmdir", "/S", config.JavaHome);
+				cmd = exec.Command("rmdir", "/S", config.JavaHome);
 				cmd.Run();
-				cmd := exec.Command("mklink", "/D", config.JavaHome, config.store+v);
-				err := cmd.Run();
+				cmd = exec.Command("mklink", "/D", config.JavaHome, config.store+v);
+				err = cmd.Run();
 				if err != nil {
 					return errors.New("Switch jdk failed, " + err.Error())
 				}
